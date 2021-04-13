@@ -863,6 +863,9 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_PORTS {5} \
  ] $xlconcat_0
 
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+
   # Create interface connections
   connect_bd_intf_net -intf_net S00_AXI_1 [get_bd_intf_pins axi_interconnect_gp0/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
   connect_bd_intf_net -intf_net axi_gpio_0_GPIO [get_bd_intf_ports hdmi_in_hpd] [get_bd_intf_pins axi_gpio_video/GPIO]
